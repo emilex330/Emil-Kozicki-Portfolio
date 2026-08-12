@@ -29,7 +29,6 @@ Personal portfolio site for Emil Kozicki — a React front end backed by a Djang
 - [API reference](#api-reference)
 - [Common tasks](#common-tasks)
 - [Known gotchas](#known-gotchas)
-- [Still to do](#still-to-do)
 
 ---
 
