@@ -383,11 +383,3 @@ done   # ten 400s, then 429
 **Mobile resize fires on scroll.** Collapsing browser toolbars change viewport height, firing `resize`. The particle field only re-seeds when *width* changes by more than 40px; height-only changes preserve particle positions.
 
 ---
-
-## Still to do
-
-- **Deployment** — production settings (`DEBUG=False`, real `ALLOWED_HOSTS` and `CORS_ALLOWED_ORIGINS`), hosting for both apps, a custom domain
-- **Social preview** — a 1200×630 `og-image.png`, and absolute URLs for `og:url` / `og:image` in `index.html`
-- **Shared throttle cache** — Redis, before running multiple workers
-- **Image optimization** — the headshot is ~1MB and displays at ~200px
-- **Repo link** — the portfolio project's `repo` field is empty until this is pushed to GitHub
