@@ -14,4 +14,3 @@ frontend/.env.local
 # editor/OS
 .DS_Store
 .vscode/
-.claude/
