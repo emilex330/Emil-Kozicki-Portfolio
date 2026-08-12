@@ -32,8 +32,11 @@ def render_profile(profile):
     parts.append("\nProjects:")
     for project in profile["projects"]:
         parts.append(f"- {project['name']} ({project['tech']}): {project['description']}")
-        for highlight in project["highlights"]:
-            parts.append(f"  - {highlight}")
+        if project.get("repo"):
+            parts.append(f"  Source code: {project['repo']}")
+        if project.get("highlights"):
+            for highlight in project["highlights"]:
+                parts.append(f"  - {highlight}")
 
     parts.append("\nEducation:")
     for school in profile["education"]:
