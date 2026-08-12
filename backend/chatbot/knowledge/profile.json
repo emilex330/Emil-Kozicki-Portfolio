@@ -1,0 +1,80 @@
+{
+  "name": "Emil Kozicki",
+  "headline": "Software Engineer",
+  "location": "Charlotte, NC",
+  "summary": "Software engineer with production experience building and troubleshooting cloud-based integrations, data pipelines, and full-stack applications. Skilled at diagnosing complex, cross-system production issues (AWS, Salesforce, third-party APIs) and shipping end-to-end features from data model to UI. M.S. in Computer Science from UNC Charlotte.",
+  "experience": [
+    {
+      "role": "Software Engineer",
+      "company": "Bridge Investment Group",
+      "location": "Charlotte, NC",
+      "dates": "February 2026 – Present",
+      "highlights": [
+        "Diagnosed and resolved production data-sync failures across a fleet of AWS Lambda integrations connecting Salesforce to third-party property-management vendors, fixing live-vs-deployed code drift, Salesforce connection-pooling failures on large paginated queries, and vendor-export parsing bugs.",
+        "Designed and shipped a Deferred Work Items feature end-to-end, including a new Salesforce data model (Apex class changes, updates to the Deferred Work Item and Line Item objects, and a new Deferred Work Item Lifecycle Event object to track item history) and client-side schema migrations/UI within HomeWyze, an offline-first SvelteKit PWA using SQLite/WASM. Led incident response when a related schema change caused stuck field submissions: patched and redeployed the affected Lambda, recovered lost data via Step Functions re-execution, and built a PWA update-detection service to auto-refresh stale client code.",
+        "Monitors and maintains AWS Batch job scheduling across integration pipelines. Diagnosed a queue-wide outage where a job definition's memory requirement silently exceeded all attached compute environments' capacity, blocking roughly 290 queued jobs, then built an EventBridge/SNS alert rule to catch that failure mode automatically. Separately traced a rogue recurring job to an undocumented trigger via CloudTrail event correlation.",
+        "Designed and shipped a bulk photo-export feature for a property inspection platform end-to-end: a Lightning Web Component and Apex integration layer (dynamic sandbox/prod routing, synchronous callouts, structured error handling) calling an AWS Lambda that concurrently downloads and archives cloud-stored photos using ThreadPoolExecutor, S3, and presigned URLs.",
+        "Diagnosed and fixed data-integrity bugs in a production AR/bad-debt reporting pipeline during a 5-market onboarding, including a cross-market data leak, a hardcoded column-index bug dropping all records for newly onboarded markets, and a logic error excluding an entire aging bucket from bad-debt eligibility company-wide."
+      ]
+    }
+  ],
+    "projects": [
+    {
+      "name": "AI Portfolio Site",
+      "tech": "React, Vite, Django REST Framework, Google Gemini API",
+      "description": "This site — a React front end backed by a Django REST API, with an AI assistant that answers visitor questions about my background.",
+      "repo": "",
+      "highlights": [
+        "Built a Django REST endpoint that proxies chat requests to the Gemini API, keeping the API key server-side so it never reaches the browser.",
+        "Hardened the assistant against prompt injection and jailbreak attempts by isolating untrusted visitor input in delimited tags, declaring no tools, and enforcing explicit topic and confidentiality boundaries in the system prompt.",
+        "Layered abuse protection over the public endpoints: IP-based burst and daily throttles, request length caps, server-side conversation history truncation, and output token limits.",
+        "Implemented a contact pipeline that persists submissions to the database before sending SMTP notifications, so messages survive email delivery failures.",
+        "Built the front end around CSS custom properties for instant dark/light theming, with canvas-based particle animation and scroll-triggered reveals."
+      ]
+    },
+    {
+      "name": "CLT Events",
+      "tech": "Node.js, Express, MongoDB, EJS",
+      "description": "Full-stack web application for event creation, browsing, RSVP management, and user profile handling.",
+      "repo": "https://github.com/emilex330/CLT-Events",
+      "highlights": [
+        "Implemented secure user authentication with hashed password verification, session tracking via express-session, and persistent login state stored in connect-mongo.",
+        "Built CRUD features for events including image upload handling, date/time validation, category filtering, and RSVP restrictions.",
+        "Designed a personalized profile dashboard displaying hosted events and RSVP history by aggregating and populating related MongoDB collections.",
+        "Used EJS templating for dynamic server-side rendering with real-time feedback via connect-flash messages.",
+        "Applied error handling and access control preventing unauthorized event edits, invalid RSVPs, and duplicate account registration."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "school": "University of North Carolina at Charlotte",
+      "degree": "M.S. in Computer Science",
+      "honors": "Magna Cum Laude",
+      "dates": "May 2024 – August 2025",
+      "note": "Early-entry program — began the M.S. while completing the B.S."
+    },
+    {
+      "school": "University of North Carolina at Charlotte",
+      "degree": "B.S. in Computer Science",
+      "honors": "Cum Laude",
+      "dates": "January 2023 – December 2024"
+    },
+    {
+      "school": "Central Piedmont Community College",
+      "degree": "Associate of Arts",
+      "dates": "August 2018 – May 2022"
+    }
+  ],
+  "skills": {
+    "languages": ["Python", "Java", "JavaScript", "C++", "C", "HTML", "CSS", "SQL"],
+    "cloud_and_backend": ["AWS Lambda", "Amazon EventBridge", "S3", "Step Functions", "API Gateway", "AWS Batch", "Amazon DynamoDB", "AWS CDK", "PostgreSQL", "MongoDB"],
+    "integration_and_data": ["Salesforce", "SOQL", "Apex", "Salesforce Bulk API 2.0", "Lightning Web Components (LWC)", "REST API Integration", "ETL/Data Pipelines"],
+    "frameworks": ["React", "Node.js", "Express", "Django REST Framework"]
+  },
+  "contact": {
+    "email": "emilex330@icloud.com",
+    "linkedin": "https://www.linkedin.com/in/emil-k-a26a63213/",
+    "github": "https://github.com/emilex330"
+  }
+}
