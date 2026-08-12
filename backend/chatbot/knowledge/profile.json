@@ -23,7 +23,7 @@
       "name": "AI Portfolio Site",
       "tech": "React, Vite, Django REST Framework, Google Gemini API",
       "description": "This site — a React front end backed by a Django REST API, with an AI assistant that answers visitor questions about my background.",
-      "repo": "",
+      "repo": "https://github.com/emilex330/Emil-Kozicki-Portfolio",
       "highlights": [
         "Built a Django REST endpoint that proxies chat requests to the Gemini API, keeping the API key server-side so it never reaches the browser.",
         "Hardened the assistant against prompt injection and jailbreak attempts by isolating untrusted visitor input in delimited tags, declaring no tools, and enforcing explicit topic and confidentiality boundaries in the system prompt.",
