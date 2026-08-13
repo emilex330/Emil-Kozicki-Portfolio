@@ -180,13 +180,14 @@
   border-radius: 50%;
   background: conic-gradient(
     from var(--ring-angle),
-    var(--grad-1),
-    var(--grad-2),
-    var(--grad-3),
-    var(--grad-2),
-    var(--grad-1)
+    var(--grad-1) 0deg,
+    var(--grad-2) 70deg,
+    var(--shimmer) 130deg,
+    var(--grad-3) 190deg,
+    var(--grad-2) 280deg,
+    var(--grad-1) 360deg
   );
-  animation: ring-spin 7s linear infinite;
+  animation: ring-spin 5s linear infinite;
 }
 
 .hero__photo-frame::after {
@@ -204,8 +205,10 @@
   position: relative;
   z-index: 2;
   width: 100%;
-  height: 100%;
+  aspect-ratio: 1;
+  height: auto;
   object-fit: cover;
+  object-position: center 35%;
   border-radius: 50%;
 }
 
