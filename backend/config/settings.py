@@ -185,15 +185,9 @@ LOGGING = {
 }
 
 # Email (iCloud SMTP)
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.mail.me.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = env.str('EMAIL_HOST_USER', default='')
-EMAIL_HOST_PASSWORD = env.str('EMAIL_HOST_PASSWORD', default='')
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
-CONTACT_NOTIFY_EMAIL = env.str('CONTACT_NOTIFY_EMAIL', default=EMAIL_HOST_USER)
-EMAIL_TIMEOUT = 10  # seconds
+CONTACT_NOTIFY_EMAIL = env.str('CONTACT_NOTIFY_EMAIL', default='')
+RESEND_API_KEY = env.str('RESEND_API_KEY', default='')
+RESEND_FROM_EMAIL = env.str('RESEND_FROM_EMAIL', default='onboarding@resend.dev')
 
 # Production security — inert when DEBUG is True
 if not DEBUG:
