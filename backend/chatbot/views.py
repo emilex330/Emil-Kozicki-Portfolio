@@ -1,10 +1,8 @@
 from rest_framework.decorators import api_view, throttle_classes
 from rest_framework.response import Response
 from rest_framework import status
-
-
 from .serializers import ChatRequestSerializer
-from .services import LLMUnavailable, call_llm
+from .services import LLMQuotaExceeded, LLMUnavailable, call_llm
 from .throttles import ChatBurstThrottle, ChatDailyThrottle
 
 
@@ -28,10 +26,14 @@ def chat(request):
             serializer.validated_data["message"],
             serializer.validated_data["history"],
         )
+    except LLMQuotaExceeded:
+        return Response(
+            {"error": "quota_exceeded"},
+            status=status.HTTP_503_SERVICE_UNAVAILABLE,
+        )
     except LLMUnavailable:
         return Response(
             {"error": "service_unavailable"},
             status=status.HTTP_503_SERVICE_UNAVAILABLE,
         )
-
     return Response({"reply": reply})

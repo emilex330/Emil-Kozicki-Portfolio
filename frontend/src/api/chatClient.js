@@ -21,8 +21,15 @@ export async function sendChatMessage(message, history) {
     throw new ChatError(0, 'network_error')
   }
 
-  if (!response.ok) {
-    throw new ChatError(response.status, 'request_failed')
+    if (!response.ok) {
+    let code = 'request_failed'
+    try {
+      const body = await response.json()
+      if (body?.error) code = body.error
+    } catch {
+      // ignore
+    }
+    throw new ChatError(response.status, code)
   }
 
   const data = await response.json()

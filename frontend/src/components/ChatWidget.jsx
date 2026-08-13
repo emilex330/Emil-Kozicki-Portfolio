@@ -9,8 +9,11 @@ const CHARS_PER_TICK = 2
 const PREFERS_REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
 function errorMessage(error) {
+  if (error.code === 'quota_exceeded') {
+    return "The assistant has reached today's free-tier limit on the AI model. Please try again tomorrow or email Emil directly, he answers faster anyway."
+  }
   if (error.status === 429) {
-    return "That's a lot of questions — give me a minute and try again."
+    return "That's a lot of questions. Give me a minute and try again."
   }
   if (error.code === 'network_error') {
     return "I can't reach the server right now. Please try again shortly."
@@ -81,7 +84,9 @@ function ChatWidget() {
         setPending(reply)
         setShown(0)
       }
-    } catch (err) {
+        } catch (err) {
+      setMessages(history)
+      setInput(question)
       setError(errorMessage(err))
     } finally {
       setIsSending(false)
