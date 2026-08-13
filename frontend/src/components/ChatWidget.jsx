@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import { sendChatMessage } from '../api/chatClient'
+import { track } from '@vercel/analytics'
 
 const MAX_CHARS = 600
 const TYPE_SPEED_MS = 12
@@ -70,6 +71,8 @@ function ChatWidget() {
     const question = input.trim()
     if (!question || isSending || pending !== null) return
 
+    track('chat_message')
+
     const history = messages
     setMessages([...messages, { role: 'user', content: question }])
     setInput('')
@@ -83,8 +86,8 @@ function ChatWidget() {
       } else {
         setPending(reply)
         setShown(0)
-      }
-        } catch (err) {
+        }
+    } catch (err) {
       setMessages(history)
       setInput(question)
       setError(errorMessage(err))

@@ -7,6 +7,7 @@ import SkillsGrid from './components/SkillsGrid'
 import './App.css'
 import { FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa6'
 import Nav from './components/Nav'
+import { Analytics } from '@vercel/analytics/react'
 
 function App() {
   return (
@@ -138,6 +139,7 @@ function App() {
           </div>
           <p>© {new Date().getFullYear()} {profile.name}</p>
         </div>
+        <Analytics />
       </footer>
 
     </>
