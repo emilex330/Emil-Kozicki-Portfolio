@@ -1,3 +1,9 @@
+@property --ring-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
 /* ==========================================================================
    Layout primitives
    ========================================================================== */
@@ -173,7 +179,7 @@
   z-index: 0;
   border-radius: 50%;
   background: conic-gradient(
-    from 0deg,
+    from var(--ring-angle),
     var(--grad-1),
     var(--grad-2),
     var(--grad-3),
@@ -201,13 +207,12 @@
   height: 100%;
   object-fit: cover;
   border-radius: 50%;
-  transform: translateZ(0);
-  backface-visibility: hidden;
 }
 
 @keyframes ring-spin {
-  to { rotate: 360deg; }
+  to { --ring-angle: 360deg; }
 }
+
 
 .hero__name {
   margin-top: 0.5rem;
