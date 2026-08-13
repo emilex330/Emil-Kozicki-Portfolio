@@ -26,6 +26,7 @@ function ChatWidget() {
   const [pending, setPending] = useState(null)
   const [shown, setShown] = useState(0)
   const endRef = useRef(null)
+  const [isSlow, setIsSlow] = useState(false)
 
   // Reveal the pending reply one chunk at a time, then commit it.
   useEffect(() => {
@@ -47,6 +48,17 @@ function ChatWidget() {
     if (messages.length === 0 && !isSending && pending === null) return
     endRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
   }, [messages, pending, shown, isSending])
+
+  // After a few seconds of waiting, explain the delay.
+  useEffect(() => {
+    if (!isSending) {
+      setIsSlow(false)
+      return undefined
+    }
+    const timer = setTimeout(() => setIsSlow(true), 7000)
+    return () => clearTimeout(timer)
+  }, [isSending])
+
 
 
   async function handleSubmit(event) {
@@ -114,6 +126,11 @@ function ChatWidget() {
               <span />
             </span>
           </motion.div>
+        )}
+        {isSending && isSlow && (
+          <p className="chat__hint">
+            Still working. Gemini's free tier is occasionally slow to respond.
+          </p>
         )}
 
         {pending !== null && (

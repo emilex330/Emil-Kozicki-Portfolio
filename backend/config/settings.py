@@ -193,6 +193,7 @@ EMAIL_HOST_USER = env.str('EMAIL_HOST_USER', default='')
 EMAIL_HOST_PASSWORD = env.str('EMAIL_HOST_PASSWORD', default='')
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 CONTACT_NOTIFY_EMAIL = env.str('CONTACT_NOTIFY_EMAIL', default=EMAIL_HOST_USER)
+EMAIL_TIMEOUT = 10  # seconds
 
 # Production security — inert when DEBUG is True
 if not DEBUG:
