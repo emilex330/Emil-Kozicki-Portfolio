@@ -127,7 +127,7 @@ function Hero() {
                 <p className="hero__tagline">{profile.summary}</p>
                         <a
                             className="btn hero__resume"
-                            href="/emil-kozicki-resume.pdf"
+                            href="/Emil_Kozicki_Resume_.pdf"
                             download
                         >
                     Download Resume
