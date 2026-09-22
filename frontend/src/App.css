@@ -54,6 +54,16 @@
   transition: background-color 0.35s var(--ease), border-color 0.35s var(--ease);
 }
 
+.nav__progress {
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  left: 0;
+  height: 2px;
+  background: var(--gradient);
+  transform-origin: left center;
+}
+
 .nav--solid {
   background: color-mix(in srgb, var(--bg) 72%, transparent);
   backdrop-filter: blur(16px);
@@ -93,6 +103,8 @@
 .nav__links::-webkit-scrollbar { display: none; }
 
 .nav__links a {
+  position: relative;
+  padding-block: 0.35rem;
   font-size: 0.92rem;
   color: var(--text-muted);
   white-space: nowrap;
@@ -100,6 +112,29 @@
 }
 
 .nav__links a:hover { color: var(--text); }
+
+.nav__links a::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--gradient);
+  opacity: 0;
+  transform: scaleX(0.35);
+  transition: opacity 0.2s var(--ease), transform 0.2s var(--ease);
+}
+
+.nav__links a.nav__link--active {
+  color: var(--text);
+}
+
+.nav__links a.nav__link--active::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
 
 .section { scroll-margin-top: calc(var(--nav-h) + 1px); }
 
@@ -131,6 +166,7 @@
    ========================================================================== */
 
 .hero {
+  --hero-space: clamp(1.25rem, 3vw, 1.75rem);
   position: relative;
   min-height: 100svh;
   display: grid;
@@ -154,7 +190,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.75rem;
+  gap: var(--hero-space);
   animation: hero-in 0.9s var(--ease) both;
 }
 
@@ -218,23 +254,25 @@
 
 
 .hero__name {
-  margin-top: 0.5rem;
+  margin-top: 0;
 }
 
 .hero__tagline {
   max-width: 34rem;
   font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+  line-height: 1.2;
+  margin-block: -0.4rem 0.4rem;
   color: var(--text-muted);
 }
 
 .hero__resume {
-  margin-top: 0.5rem;
+  margin-top: 0;
   text-decoration: none;
 }
 
 .hero__scroll {
   position: absolute;
-  bottom: 2.5rem;
+  bottom: var(--hero-space);
   left: 50%;
   translate: -50% 0;
   width: 1.5rem;
@@ -664,8 +702,6 @@
 
 @media (max-width: 30rem) {
   .section { padding-block: 3.5rem; }
-
-  .hero__inner { gap: 1.25rem; }
 
   .hero__tagline {
     display: -webkit-box;

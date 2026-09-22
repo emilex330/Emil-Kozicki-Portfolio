@@ -36,14 +36,17 @@ function ChatWidget() {
   useEffect(() => {
     if (pending === null) return undefined
 
-    if (shown >= pending.length) {
-      setMessages((current) => [...current, { role: 'assistant', content: pending }])
-      setPending(null)
-      setShown(0)
-      return undefined
-    }
+    const timer = setTimeout(() => {
+      const nextShown = Math.min(shown + CHARS_PER_TICK, pending.length)
 
-    const timer = setTimeout(() => setShown((n) => n + CHARS_PER_TICK), TYPE_SPEED_MS)
+      if (nextShown >= pending.length) {
+        setMessages((current) => [...current, { role: 'assistant', content: pending }])
+        setPending(null)
+        setShown(0)
+      } else {
+        setShown(nextShown)
+      }
+    }, TYPE_SPEED_MS)
     return () => clearTimeout(timer)
   }, [pending, shown])
 
@@ -55,10 +58,8 @@ function ChatWidget() {
 
   // After a few seconds of waiting, explain the delay.
   useEffect(() => {
-    if (!isSending) {
-      setIsSlow(false)
-      return undefined
-    }
+    if (!isSending) return undefined
+
     const timer = setTimeout(() => setIsSlow(true), 7000)
     return () => clearTimeout(timer)
   }, [isSending])
@@ -77,6 +78,7 @@ function ChatWidget() {
     setMessages([...messages, { role: 'user', content: question }])
     setInput('')
     setError(null)
+    setIsSlow(false)
     setIsSending(true)
 
     try {
@@ -92,6 +94,7 @@ function ChatWidget() {
       setInput(question)
       setError(errorMessage(err))
     } finally {
+      setIsSlow(false)
       setIsSending(false)
     }
   }

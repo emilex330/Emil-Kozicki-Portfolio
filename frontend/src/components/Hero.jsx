@@ -123,15 +123,16 @@ function Hero() {
                 <h1 className="hero__name">
                     <span className="gradient-text gradient-text--animated">{profile.name}</span>
                 </h1>
-
-                <p className="hero__tagline">{profile.summary}</p>
-                        <a
-                            className="btn hero__resume"
-                            href="/Emil_Kozicki_Resume_.pdf"
-                            download
-                        >
+                <p className="hero__tagline">
+                    {profile.headline} · {profile.location}
+                </p>
+                <a
+                    className="btn hero__resume"
+                    href="/Emil_Kozicki_Resume_.pdf"
+                    download
+                >
                     Download Resume
-        </a>
+                </a>
 
             </div>
 
