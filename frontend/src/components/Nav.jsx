@@ -21,8 +21,8 @@ function Nav() {
   })
 
   useEffect(() => {
-    const sections = LINKS
-      .map((link) => document.querySelector(link.href))
+    const sections = ['#top', ...LINKS.map((link) => link.href)]
+      .map((selector) => document.querySelector(selector))
       .filter(Boolean)
 
     const observer = new IntersectionObserver(
@@ -32,7 +32,8 @@ function Nav() {
           .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)
 
         if (visibleSections.length > 0) {
-          setActiveSection(visibleSections[0].target.id)
+          const section = visibleSections[0].target
+          setActiveSection(section.id === 'top' ? null : section.id)
         }
       },
       {
@@ -51,7 +52,12 @@ function Nav() {
   return (
     <header className={`nav${scrolled ? ' nav--solid' : ''}`}>
       <nav className="nav__inner" aria-label="Main">
-        <a className="nav__brand" href="#top">EK</a>
+        <a
+          className="nav__brand"
+          href="#top"
+        >
+          EK
+        </a>
 
         <ul className="nav__links">
           {LINKS.map((link) => (
