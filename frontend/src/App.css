@@ -129,7 +129,10 @@
 
 .nav__links a.nav__link--active {
   color: var(--text);
-  box-shadow: inset 0 -2px 0 var(--accent);
+  background-image: var(--gradient);
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-size: 100% 2px;
 }
 
 .nav__links a.nav__link--active::after {
