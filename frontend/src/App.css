@@ -113,31 +113,8 @@
 
 .nav__links a:hover { color: var(--text); }
 
-.nav__links a::after {
-  content: '';
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  height: 2px;
-  border-radius: 999px;
-  background: var(--gradient);
-  opacity: 0;
-  transform: scaleX(0.35);
-  transition: opacity 0.2s var(--ease), transform 0.2s var(--ease);
-}
-
 .nav__links a.nav__link--active {
   color: var(--text);
-  background-image: var(--gradient);
-  background-repeat: no-repeat;
-  background-position: left bottom;
-  background-size: 100% 2px;
-}
-
-.nav__links a.nav__link--active::after {
-  opacity: 1;
-  transform: scaleX(1);
 }
 
 .section { scroll-margin-top: calc(var(--nav-h) + 1px); }
