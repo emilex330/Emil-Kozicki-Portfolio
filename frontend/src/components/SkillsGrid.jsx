@@ -36,14 +36,14 @@ const GROUPS = [
     label: 'Cloud & Backend',
     items: [
       { name: 'AWS', Icon: FaAws, color: AWS },
-      { name: 'AWS Lambda', short: 'λ', color: AWS },
-      { name: 'Amazon EventBridge', short: 'EB', color: AWS },
-      { name: 'Amazon S3', short: 'S3', color: AWS },
-      { name: 'AWS Step Functions', short: 'SFN', color: AWS },
-      { name: 'Amazon API Gateway', short: 'API', color: AWS },
-      { name: 'AWS Batch', short: 'BAT', color: AWS },
-      { name: 'Amazon DynamoDB', short: 'DDB', color: AWS },
-      { name: 'AWS CDK', short: 'CDK', color: AWS },
+      { name: 'AWS Lambda', color: AWS },
+      { name: 'Amazon EventBridge', color: AWS },
+      { name: 'Amazon S3', color: AWS },
+      { name: 'AWS Step Functions', color: AWS },
+      { name: 'Amazon API Gateway', color: AWS },
+      { name: 'AWS Batch', color: AWS },
+      { name: 'Amazon DynamoDB', color: AWS },
+      { name: 'AWS CDK', color: AWS },
       { name: 'PostgreSQL', Icon: SiPostgresql, color: '#4169E1' },
       { name: 'MongoDB', Icon: SiMongodb, color: '#47A248' },
     ],
@@ -52,12 +52,12 @@ const GROUPS = [
     label: 'Integration & Data',
     items: [
       { name: 'Salesforce', Icon: FaSalesforce, color: SFDC },
-      { name: 'SOQL', short: 'SOQL', color: SFDC },
-      { name: 'Apex', short: 'APX', color: SFDC },
-      { name: 'Salesforce Bulk API 2.0', short: 'BULK', color: SFDC },
-      { name: 'Lightning Web Components', short: 'LWC', color: SFDC },
-      { name: 'REST API Integration', short: 'REST' },
-      { name: 'ETL / Data Pipelines', short: 'ETL' },
+      { name: 'SOQL', color: SFDC },
+      { name: 'Apex', color: SFDC },
+      { name: 'Salesforce Bulk API 2.0', color: SFDC },
+      { name: 'Lightning Web Components', color: SFDC },
+      { name: 'REST API Integration' },
+      { name: 'ETL / Data Pipelines' },
     ],
   },
   {
@@ -86,17 +86,17 @@ const tileVariants = {
   },
 }
 
-function SkillTile({ name, Icon, short, color }) {
+function SkillTile({ name, Icon, color }) {
   return (
     <motion.li
       className="skill"
       variants={tileVariants}
       style={color ? { '--brand': color } : undefined}
     >
-      <span className="skill__mark">
-        {Icon ? <Icon aria-hidden="true" /> : <span className="skill__mono">{short}</span>}
+      <span className="skill__mark" aria-hidden="true">
+        {Icon ? <Icon /> : <span className="skill__dot" />}
       </span>
-      <span className="skill__tip">{name}</span>
+      <span className="skill__name">{name}</span>
     </motion.li>
   )
 }

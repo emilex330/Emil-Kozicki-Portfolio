@@ -7,6 +7,12 @@ const MAX_CHARS = 600
 const TYPE_SPEED_MS = 12
 const CHARS_PER_TICK = 2
 
+const SUGGESTIONS = [
+  'What did Emil build at Bridge?',
+  'What is he good at?',
+  'What tech does he work with?',
+]
+
 const PREFERS_REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
 function errorMessage(error) {
@@ -66,10 +72,12 @@ function ChatWidget() {
 
 
 
-  async function handleSubmit(event) {
+  function handleSubmit(event) {
     event.preventDefault()
+    sendQuestion(input.trim())
+  }
 
-    const question = input.trim()
+  async function sendQuestion(question) {
     if (!question || isSending || pending !== null) return
 
     track('chat_message')
@@ -105,9 +113,21 @@ function ChatWidget() {
     <div className="chat__window">
       <div className="chat__messages">
         {messages.length === 0 && !isBusy && (
-          <p className="chat__empty">
-            Try “What did Emil build at Bridge?” or “What is he good at?”
-          </p>
+          <div className="chat__empty">
+            <p>Not sure where to start? Try one of these:</p>
+            <div className="chat__suggestions">
+              {SUGGESTIONS.map((suggestion) => (
+                <button
+                  key={suggestion}
+                  className="chat__suggestion"
+                  type="button"
+                  onClick={() => sendQuestion(suggestion)}
+                >
+                  {suggestion}
+                </button>
+              ))}
+            </div>
+          </div>
         )}
 
         <AnimatePresence initial={false}>

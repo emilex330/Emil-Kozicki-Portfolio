@@ -2,19 +2,18 @@
   "name": "Emil Kozicki",
   "headline": "Software Engineer",
   "location": "Charlotte, NC",
-  "summary": "Software engineer with production experience building and troubleshooting cloud-based integrations, data pipelines, and full-stack applications. Skilled at diagnosing complex, cross-system production issues (AWS, Salesforce, third-party APIs) and shipping end-to-end features from data model to UI. M.S. in Computer Science from UNC Charlotte.",
+  "summary": "I'm a software engineer in Charlotte, NC, currently at Bridge Investment Group. Most of my work is connecting systems that weren't built to talk to each other, like AWS, Salesforce and third-party APIs, and figuring out why data isn't flowing the way it should. I enjoy the detective work of a tricky production bug just as much as building a feature from the data model all the way to the UI. I have an M.S. in Computer Science from UNC Charlotte, and I built this site (and its AI assistant) to show a little of how I work.",
   "experience": [
     {
       "role": "Software Engineer",
       "company": "Bridge Investment Group",
       "location": "Charlotte, NC",
       "dates": "February 2026 – Present",
+      "tech": "Python, AWS Lambda, Step Functions, S3, Salesforce, Apex, LWC",
       "highlights": [
-        "Diagnosed and resolved production data-sync failures across a fleet of AWS Lambda integrations connecting Salesforce to third-party property-management vendors, fixing live-vs-deployed code drift, Salesforce connection-pooling failures on large paginated queries, and vendor-export parsing bugs.",
-        "Designed and shipped a Deferred Work Items feature end-to-end, including a new Salesforce data model (Apex class changes, updates to the Deferred Work Item and Line Item objects, and a new Deferred Work Item Lifecycle Event object to track item history) and client-side schema migrations/UI within HomeWyze, an offline-first SvelteKit PWA using SQLite/WASM. Led incident response when a related schema change caused stuck field submissions: patched and redeployed the affected Lambda, recovered lost data via Step Functions re-execution, and built a PWA update-detection service to auto-refresh stale client code.",
-        "Monitors and maintains AWS Batch job scheduling across integration pipelines. Diagnosed a queue-wide outage where a job definition's memory requirement silently exceeded all attached compute environments' capacity, blocking roughly 290 queued jobs, then built an EventBridge/SNS alert rule to catch that failure mode automatically. Separately traced a rogue recurring job to an undocumented trigger via CloudTrail event correlation.",
-        "Designed and shipped a bulk photo-export feature for a property inspection platform end-to-end: a Lightning Web Component and Apex integration layer (dynamic sandbox/prod routing, synchronous callouts, structured error handling) calling an AWS Lambda that concurrently downloads and archives cloud-stored photos using ThreadPoolExecutor, S3, and presigned URLs.",
-        "Diagnosed and fixed data-integrity bugs in a production AR/bad-debt reporting pipeline during a 5-market onboarding, including a cross-market data leak, a hardcoded column-index bug dropping all records for newly onboarded markets, and a logic error excluding an entire aging bucket from bad-debt eligibility company-wide."
+        "Resolved production data-sync failures across AWS Lambda integrations linking Salesforce to third-party property-management vendors.",
+        "Shipped a Deferred Work Items feature end-to-end, from a new Salesforce data model to the UI in an offline-first SvelteKit PWA, then led the incident response when a related schema change caused stuck field submissions, recovering the lost data.",
+        "Built a bulk photo-export feature for a property inspection platform: a Lightning Web Component and Apex layer calling an AWS Lambda."
       ]
     }
   ],
@@ -25,11 +24,9 @@
       "description": "This site — a React front end backed by a Django REST API, with an AI assistant that answers visitor questions about my background.",
       "repo": "https://github.com/emilex330/Emil-Kozicki-Portfolio",
       "highlights": [
-        "Built a Django REST endpoint that proxies chat requests to the Gemini API, keeping the API key server-side so it never reaches the browser.",
-        "Hardened the assistant against prompt injection and jailbreak attempts by isolating untrusted visitor input in delimited tags, declaring no tools, and enforcing explicit topic and confidentiality boundaries in the system prompt.",
-        "Layered abuse protection over the public endpoints: IP-based burst and daily throttles, request length caps, server-side conversation history truncation, and output token limits.",
-        "Implemented a contact pipeline that persists submissions to the database before sending SMTP notifications, so messages survive email delivery failures.",
-        "Built the front end around CSS custom properties for instant dark/light theming, with canvas-based particle animation and scroll-triggered reveals."
+        "Built a Django REST API that proxies chat requests to Gemini, keeping the API key server-side.",
+        "Hardened the assistant against prompt injection and abuse with input isolation, no tool access, rate limiting and request/token caps.",
+        "Built a contact pipeline that saves messages before emailing, so nothing is lost if email delivery fails."
       ]
     },
     {
@@ -38,11 +35,9 @@
       "description": "Full-stack web application for event creation, browsing, RSVP management, and user profile handling.",
       "repo": "https://github.com/emilex330/CLT-Events",
       "highlights": [
-        "Implemented secure user authentication with hashed password verification, session tracking via express-session, and persistent login state stored in connect-mongo.",
-        "Built CRUD features for events including image upload handling, date/time validation, category filtering, and RSVP restrictions.",
-        "Designed a personalized profile dashboard displaying hosted events and RSVP history by aggregating and populating related MongoDB collections.",
-        "Used EJS templating for dynamic server-side rendering with real-time feedback via connect-flash messages.",
-        "Applied error handling and access control preventing unauthorized event edits, invalid RSVPs, and duplicate account registration."
+        "Implemented secure authentication with hashed passwords and persistent sessions in MongoDB.",
+        "Built event CRUD with image uploads, validation, category filtering and RSVP rules.",
+        "Built a profile dashboard showing hosted events and RSVP history."
       ]
     }
   ],
@@ -59,11 +54,6 @@
       "degree": "B.S. in Computer Science",
       "honors": "Cum Laude",
       "dates": "January 2023 – December 2024"
-    },
-    {
-      "school": "Central Piedmont Community College",
-      "degree": "Associate of Arts",
-      "dates": "August 2018 – May 2022"
     }
   ],
   "skills": {

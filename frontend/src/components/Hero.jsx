@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { FaGithub, FaLinkedin } from 'react-icons/fa6'
 import profile from '../data/profile.json'
 import headshot from '../assets/headshot.jpeg'
 
@@ -126,13 +127,41 @@ function Hero() {
                 <p className="hero__tagline">
                     {profile.headline} · {profile.location}
                 </p>
-                <a
-                    className="btn hero__resume"
-                    href="/Emil_Kozicki_Resume.pdf"
-                    download
-                >
-                    Download Resume
-                </a>
+                <div className="hero__actions">
+                    <a
+                        className="btn"
+                        href="/Emil_Kozicki_Resume.pdf"
+                        download
+                    >
+                        Download Resume
+                    </a>
+                    <a className="btn btn--ghost" href="#contact">
+                        Get in touch
+                    </a>
+                </div>
+
+                <div className="hero__social">
+                    <a
+                        className="icon-link"
+                        href={profile.contact.github}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label="Emil on GitHub"
+                        title="GitHub"
+                    >
+                        <FaGithub />
+                    </a>
+                    <a
+                        className="icon-link"
+                        href={profile.contact.linkedin}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label="Emil on LinkedIn"
+                        title="LinkedIn"
+                    >
+                        <FaLinkedin />
+                    </a>
+                </div>
 
             </div>
 

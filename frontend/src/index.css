@@ -36,7 +36,7 @@
   /* Layout */
   --container:   68rem;
   --nav-h: 3.8rem;
-  --section-gap: clamp(5rem, 12vw, 9rem);
+  --section-gap: clamp(4rem, 9vw, 6.5rem);
 
   /* Motion */
   --ease: cubic-bezier(0.16, 1, 0.3, 1);

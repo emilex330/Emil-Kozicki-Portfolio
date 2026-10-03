@@ -48,6 +48,7 @@ function ContactForm() {
           name="name"
           value={form.name}
           onChange={handleChange}
+          placeholder="Grzegorz Brzęczyszczykiewicz"
           maxLength={100}
           required
         />
@@ -62,6 +63,7 @@ function ContactForm() {
           type="email"
           value={form.email}
           onChange={handleChange}
+          placeholder="grzegorz@brzeczyszczykiewicz.com"
           required
         />
         {fieldErrors.email && <p className="field__error">{fieldErrors.email[0]}</p>}
@@ -74,6 +76,7 @@ function ContactForm() {
           name="message"
           value={form.message}
           onChange={handleChange}
+          placeholder="Hi Emil, I'd love to chat about a software engineering role on our team…"
           rows={6}
           maxLength={2000}
           required

@@ -28,6 +28,7 @@ function App() {
                 <p className="card__meta">
                   {job.company} · {job.location} · {job.dates}
                 </p>
+                {job.tech && <span className="card__tech">{job.tech}</span>}
                 <ul className="card__list">
                   {job.highlights.map((highlight, index) => (
                     <li key={index}>{highlight}</li>
@@ -76,15 +77,18 @@ function App() {
         </Section>
 
         <Section id="education" label="Education" title="Where I studied">
-          <div className="card-grid card-grid--two">
+          <div className="card-grid">
             {profile.education.map((school) => (
               <article className="card" key={school.degree}>
-                <h3>{school.degree}</h3>
-                <p className="card__meta">
-                  {school.school} · {school.dates}
-                  {school.honors ? ` · ${school.honors}` : ''}
-                </p>
-                {school.note && <p className="card__meta">{school.note}</p>}
+                <div className="edu__head">
+                  <h3>
+                    {school.degree}
+                    {school.honors && <span className="edu__honors"> · {school.honors}</span>}
+                  </h3>
+                  <span className="edu__dates">{school.dates}</span>
+                </div>
+                <p className="edu__school">{school.school}</p>
+                {school.note && <p className="edu__note">{school.note}</p>}
               </article>
             ))}
           </div>
@@ -109,7 +113,7 @@ function App() {
         <div className="container">
           <div className="footer__links">
             <a
-              className="footer__icon"
+              className="icon-link"
               href={`mailto:${profile.contact.email}`}
               aria-label="Email Emil"
               title="Email"
@@ -117,7 +121,7 @@ function App() {
               <FaEnvelope />
             </a>
             <a
-              className="footer__icon"
+              className="icon-link"
               href={profile.contact.linkedin}
               target="_blank"
               rel="noreferrer"
@@ -127,7 +131,7 @@ function App() {
               <FaLinkedin />
             </a>
             <a
-              className="footer__icon"
+              className="icon-link"
               href={profile.contact.github}
               target="_blank"
               rel="noreferrer"
