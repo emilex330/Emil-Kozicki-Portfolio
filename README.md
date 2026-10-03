@@ -94,7 +94,7 @@ portfolio/
 └── frontend/
     ├── public/
     │   ├── favicon.svg            gradient "EK" mark
-    │   └── emil-kozicki-resume.pdf
+    │   └── Emil_Kozicki_Resume.pdf
     ├── src/
     │   ├── api/
     │   │   ├── chatClient.js      fetch wrapper for /api/chat/

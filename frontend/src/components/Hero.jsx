@@ -128,7 +128,7 @@ function Hero() {
                 </p>
                 <a
                     className="btn hero__resume"
-                    href="/Emil_Kozicki_Resume_.pdf"
+                    href="/Emil_Kozicki_Resume.pdf"
                     download
                 >
                     Download Resume
