@@ -2,13 +2,14 @@
   "name": "Emil Kozicki",
   "headline": "Software Engineer",
   "location": "Charlotte, NC",
-  "summary": "I'm a software engineer in Charlotte, NC, currently at Bridge Investment Group. Most of my work is connecting systems that weren't built to talk to each other, like AWS, Salesforce and third-party APIs, and figuring out why data isn't flowing the way it should. I enjoy the detective work of a tricky production bug just as much as building a feature from the data model all the way to the UI. I have an M.S. in Computer Science from UNC Charlotte, and I built this site (and its AI assistant) to show a little of how I work.",
+  "openToWork": true,
+  "summary": "I'm a software engineer in Charlotte, NC. Most recently at Bridge Investment Group, I connected systems that weren't built to talk to each other, like AWS, Salesforce and third-party APIs, and figured out why data wasn't flowing the way it should. I enjoy the detective work of a tricky production bug just as much as building a feature from the data model all the way to the UI. I have an M.S. in Computer Science from UNC Charlotte, and I built this site (and its AI assistant) to show a little of how I work. I'm open to new software engineering roles, so if you're hiring, I'd love to hear from you.",
   "experience": [
     {
       "role": "Software Engineer",
       "company": "Bridge Investment Group",
       "location": "Charlotte, NC",
-      "dates": "February 2026 – Present",
+      "dates": "February 2026 – September 2026",
       "tech": "Python, AWS Lambda, Step Functions, S3, Salesforce, Apex, LWC",
       "highlights": [
         "Resolved production data-sync failures across AWS Lambda integrations linking Salesforce to third-party property-management vendors.",
@@ -45,22 +46,20 @@
     {
       "school": "University of North Carolina at Charlotte",
       "degree": "M.S. in Computer Science",
-      "honors": "Magna Cum Laude",
       "dates": "May 2024 – August 2025",
-      "note": "Early-entry program — began the M.S. while completing the B.S."
+      "note": "Early Entry Program: began graduate coursework while completing the B.S."
     },
     {
       "school": "University of North Carolina at Charlotte",
       "degree": "B.S. in Computer Science",
-      "honors": "Cum Laude",
       "dates": "January 2023 – December 2024"
     }
   ],
   "skills": {
-    "languages": ["Python", "Java", "JavaScript", "C++", "C", "HTML", "CSS", "SQL"],
-    "cloud_and_backend": ["AWS Lambda", "Amazon EventBridge", "S3", "Step Functions", "API Gateway", "AWS Batch", "Amazon DynamoDB", "AWS CDK", "PostgreSQL", "MongoDB"],
-    "integration_and_data": ["Salesforce", "SOQL", "Apex", "Salesforce Bulk API 2.0", "Lightning Web Components (LWC)", "REST API Integration", "ETL/Data Pipelines"],
-    "frameworks": ["React", "Node.js", "Express", "Django REST Framework"]
+    "languages": ["Python", "Java", "JavaScript", "SQL", "HTML", "CSS"],
+    "cloud_and_backend": ["AWS Lambda", "S3", "Step Functions", "AWS Batch", "Amazon EventBridge", "SNS", "CloudWatch", "AWS CDK", "PostgreSQL", "MongoDB"],
+    "integration_and_data": ["Salesforce", "Apex", "SOQL", "Salesforce Bulk API 2.0", "Lightning Web Components (LWC)", "REST API Integration", "ETL/Data Pipelines"],
+    "frameworks": ["Django", "Django REST Framework", "React", "Node.js", "Express"]
   },
   "contact": {
     "email": "emilex330@icloud.com",

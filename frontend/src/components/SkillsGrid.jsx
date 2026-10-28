@@ -1,7 +1,5 @@
 import { motion } from 'motion/react'
 import {
-  SiC,
-  SiCplusplus,
   SiDjango,
   SiExpress,
   SiHtml5,
@@ -25,11 +23,9 @@ const GROUPS = [
       { name: 'Python', Icon: SiPython, color: '#3776AB' },
       { name: 'Java', Icon: SiOpenjdk, color: '#ED8B00' },
       { name: 'JavaScript', Icon: SiJavascript, color: '#E8C000' },
-      { name: 'C++', Icon: SiCplusplus, color: '#00599C' },
-      { name: 'C', Icon: SiC, color: '#7C8CA8' },
+      { name: 'SQL', Icon: FaDatabase, color: '#4479A1' },
       { name: 'HTML', Icon: SiHtml5, color: '#E34F26' },
       { name: 'CSS', Icon: FaCss3Alt, color: '#1572B6' },
-      { name: 'SQL', Icon: FaDatabase, color: '#4479A1' },
     ],
   },
   {
@@ -37,12 +33,12 @@ const GROUPS = [
     items: [
       { name: 'AWS', Icon: FaAws, color: AWS },
       { name: 'AWS Lambda', color: AWS },
-      { name: 'Amazon EventBridge', color: AWS },
       { name: 'Amazon S3', color: AWS },
       { name: 'AWS Step Functions', color: AWS },
-      { name: 'Amazon API Gateway', color: AWS },
       { name: 'AWS Batch', color: AWS },
-      { name: 'Amazon DynamoDB', color: AWS },
+      { name: 'Amazon EventBridge', color: AWS },
+      { name: 'Amazon SNS', color: AWS },
+      { name: 'Amazon CloudWatch', color: AWS },
       { name: 'AWS CDK', color: AWS },
       { name: 'PostgreSQL', Icon: SiPostgresql, color: '#4169E1' },
       { name: 'MongoDB', Icon: SiMongodb, color: '#47A248' },
@@ -52,8 +48,8 @@ const GROUPS = [
     label: 'Integration & Data',
     items: [
       { name: 'Salesforce', Icon: FaSalesforce, color: SFDC },
-      { name: 'SOQL', color: SFDC },
       { name: 'Apex', color: SFDC },
+      { name: 'SOQL', color: SFDC },
       { name: 'Salesforce Bulk API 2.0', color: SFDC },
       { name: 'Lightning Web Components', color: SFDC },
       { name: 'REST API Integration' },
@@ -63,10 +59,11 @@ const GROUPS = [
   {
     label: 'Frameworks',
     items: [
+      { name: 'Django', Icon: SiDjango, color: '#44B78B' },
+      { name: 'Django REST Framework', color: '#44B78B' },
       { name: 'React', Icon: SiReact, color: '#61DAFB' },
       { name: 'Node.js', Icon: SiNodedotjs, color: '#5FA04E' },
       { name: 'Express', Icon: SiExpress },
-      { name: 'Django REST Framework', Icon: SiDjango, color: '#44B78B' },
     ],
   },
 ]

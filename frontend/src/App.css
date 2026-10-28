@@ -300,6 +300,48 @@
   margin-top: 0;
 }
 
+.hero__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: -0.5rem;
+  padding: 0.4rem 0.95rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--bg) 70%, transparent);
+  backdrop-filter: blur(12px);
+  color: var(--text);
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: border-color 0.25s var(--ease);
+}
+
+.hero__status:hover {
+  border-color: var(--status);
+}
+
+.hero__status-dot {
+  position: relative;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--status);
+}
+
+.hero__status-dot::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--status);
+  animation: status-pulse 2s var(--ease) infinite;
+}
+
+@keyframes status-pulse {
+  0%   { transform: scale(1);   opacity: 0.6; }
+  100% { transform: scale(2.6); opacity: 0; }
+}
+
 .hero__tagline {
   max-width: 34rem;
   font-size: 0.9rem;

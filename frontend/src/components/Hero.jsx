@@ -121,6 +121,13 @@ function Hero() {
                     <img className="hero__photo" src={headshot} alt={profile.name} />
                 </div>
 
+                {profile.openToWork && (
+                    <a className="hero__status" href="#contact">
+                        <span className="hero__status-dot" aria-hidden="true" />
+                        Open to new roles
+                    </a>
+                )}
+
                 <h1 className="hero__name">
                     <span className="gradient-text gradient-text--animated">{profile.name}</span>
                 </h1>

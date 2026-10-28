@@ -2,19 +2,19 @@
   "name": "Emil Kozicki",
   "headline": "Software Engineer",
   "location": "Charlotte, NC",
-  "summary": "Software engineer with production experience building and troubleshooting cloud-based integrations, data pipelines, and full-stack applications. Skilled at diagnosing complex, cross-system production issues (AWS, Salesforce, third-party APIs) and shipping end-to-end features from data model to UI. M.S. in Computer Science from UNC Charlotte.",
+  "summary": "Backend-focused software engineer with production experience building and supporting AWS-based integrations and data pipelines in Python. Strongest at diagnosing production failures across systems (AWS, Salesforce, third-party vendor APIs) and shipping features end to end, from data model to UI. M.S. in Computer Science from UNC Charlotte. Left Bridge Investment Group in September 2026 and is currently open to new software engineering roles.",
   "experience": [
     {
       "role": "Software Engineer",
       "company": "Bridge Investment Group",
       "location": "Charlotte, NC",
-      "dates": "February 2026 – Present",
+      "dates": "February 2026 – September 2026",
       "highlights": [
-        "Diagnosed and resolved production data-sync failures across a fleet of AWS Lambda integrations connecting Salesforce to third-party property-management vendors, fixing live-vs-deployed code drift, Salesforce connection-pooling failures on large paginated queries, and vendor-export parsing bugs.",
-        "Designed and shipped a Deferred Work Items feature end-to-end, including a new Salesforce data model (Apex class changes, updates to the Deferred Work Item and Line Item objects, and a new Deferred Work Item Lifecycle Event object to track item history) and client-side schema migrations/UI within HomeWyze, an offline-first SvelteKit PWA using SQLite/WASM. Led incident response when a related schema change caused stuck field submissions: patched and redeployed the affected Lambda, recovered lost data via Step Functions re-execution, and built a PWA update-detection service to auto-refresh stale client code.",
-        "Monitors and maintains AWS Batch job scheduling across integration pipelines. Diagnosed a queue-wide outage where a job definition's memory requirement silently exceeded all attached compute environments' capacity, blocking roughly 290 queued jobs, then built an EventBridge/SNS alert rule to catch that failure mode automatically. Separately traced a rogue recurring job to an undocumented trigger via CloudTrail event correlation.",
-        "Designed and shipped a bulk photo-export feature for a property inspection platform end-to-end: a Lightning Web Component and Apex integration layer (dynamic sandbox/prod routing, synchronous callouts, structured error handling) calling an AWS Lambda that concurrently downloads and archives cloud-stored photos using ThreadPoolExecutor, S3, and presigned URLs.",
-        "Diagnosed and fixed data-integrity bugs in a production AR/bad-debt reporting pipeline during a 5-market onboarding, including a cross-market data leak, a hardcoded column-index bug dropping all records for newly onboarded markets, and a logic error excluding an entire aging bucket from bad-debt eligibility company-wide."
+        "Supported a fleet of AWS Lambda integrations syncing data between Salesforce and third-party property-management vendors: triaged production failures via Jira and CloudWatch, reconciled drift between live Lambda code and source control, added retry logic for dropped Salesforce connections during large paginated queries, and extended vendor CSV parsing to support new fields without breaking existing exports.",
+        "Designed and shipped a Deferred Work Items feature end to end, including the Salesforce data model (Apex changes, a new lifecycle-event object to track item history) and client-side schema migrations and UI in HomeWyze, an existing offline-first SvelteKit PWA.",
+        "Resolved a production incident caused by the Deferred Work Items schema change, where devices running stale cached app code submitted payloads that no longer matched the updated backend schema: patched the Lambda to accept both formats, recovered failed submissions by re-running Step Functions executions, and built a background update-detection service that keeps clients on current code without interrupting users.",
+        "Monitored and maintained AWS Batch job scheduling across integration pipelines. Diagnosed a queue-wide outage where a job definition's memory requirement exceeded every attached compute environment's capacity, silently blocking ~290 queued jobs; restored the last known-good configuration and added an EventBridge/SNS alert on Batch's queue-blocked events to catch this failure mode automatically.",
+        "Designed and shipped a bulk photo-export feature for HomeWorx, a Salesforce-based property inspection platform, spanning a Lightning Web Component, an Apex integration layer with sandbox/production routing and error handling, and a Python Lambda that downloads S3-stored photos concurrently (ThreadPoolExecutor), archives them, and returns a presigned URL for direct download."
       ]
     }
   ],
@@ -50,14 +50,12 @@
     {
       "school": "University of North Carolina at Charlotte",
       "degree": "M.S. in Computer Science",
-      "honors": "Magna Cum Laude",
       "dates": "May 2024 – August 2025",
-      "note": "Early-entry program — began the M.S. while completing the B.S."
+      "note": "Early Entry Program: began graduate coursework while completing the B.S."
     },
     {
       "school": "University of North Carolina at Charlotte",
       "degree": "B.S. in Computer Science",
-      "honors": "Cum Laude",
       "dates": "January 2023 – December 2024"
     },
     {
@@ -67,10 +65,10 @@
     }
   ],
   "skills": {
-    "languages": ["Python", "Java", "JavaScript", "C++", "C", "HTML", "CSS", "SQL"],
-    "cloud_and_backend": ["AWS Lambda", "Amazon EventBridge", "S3", "Step Functions", "API Gateway", "AWS Batch", "Amazon DynamoDB", "AWS CDK", "PostgreSQL", "MongoDB"],
-    "integration_and_data": ["Salesforce", "SOQL", "Apex", "Salesforce Bulk API 2.0", "Lightning Web Components (LWC)", "REST API Integration", "ETL/Data Pipelines"],
-    "frameworks": ["React", "Node.js", "Express", "Django REST Framework"]
+    "languages": ["Python", "Java", "JavaScript", "SQL", "HTML", "CSS"],
+    "cloud_and_backend": ["AWS Lambda", "S3", "Step Functions", "AWS Batch", "Amazon EventBridge", "SNS", "CloudWatch", "AWS CDK", "PostgreSQL", "MongoDB"],
+    "integration_and_data": ["Salesforce", "Apex", "SOQL", "Salesforce Bulk API 2.0", "Lightning Web Components (LWC)", "REST API Integration", "ETL/Data Pipelines"],
+    "frameworks": ["Django", "Django REST Framework", "React", "Node.js", "Express"]
   },
   "contact": {
     "email": "emilex330@icloud.com",
