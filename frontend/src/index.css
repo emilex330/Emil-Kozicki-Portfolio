@@ -47,13 +47,13 @@
 
 [data-theme='light'] {
   --bg:             #ffffff;
+  --shimmer:        #ff6b35;
   --bg-elevated:    #f7f7f9;
   --bg-input:       #ffffff;
   --border:         #e3e3e8;
   --border-strong:  #c8c8d0;
   --text:           #1d1d1f;
   --text-muted:     #6e6e73;
-   --shimmer:        #ff6b35;
 
   --grad-1:         #9333ea;
   --grad-2:         #db2777;
@@ -88,6 +88,8 @@
 html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
+  /* Nothing should ever scroll sideways; clip (unlike hidden) keeps the nav working */
+  overflow-x: clip;
 }
 
 body {
@@ -143,38 +145,6 @@ a:hover { color: var(--accent-strong); }
   outline-offset: 3px;
   border-radius: 4px;
 }
-
-/* ==========================================================================
-   Gradient text
-   ========================================================================== */
-
-.gradient-text {
-  background: var(--gradient);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.gradient-text--animated {
-  background-image: linear-gradient(
-    100deg,
-    var(--grad-1) 0%,
-    var(--grad-2) 20%,
-    var(--shimmer) 35%,
-    var(--grad-3) 50%,
-    var(--grad-2) 70%,
-    var(--grad-1) 100%
-  );
-  background-size: 250% auto;
-  animation: shimmer 6s linear infinite;
-}
-
-@keyframes shimmer {
-  from { background-position: 250% center; }
-  to   { background-position: -250% center; }
-}
-
 
 /* ==========================================================================
    Reduced motion

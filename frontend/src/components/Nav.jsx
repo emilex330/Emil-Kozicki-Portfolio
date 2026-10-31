@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, useMotionValueEvent, useScroll } from 'motion/react'
-import { FaBars, FaXmark } from 'react-icons/fa6'
 import ThemeToggle from './ThemeToggle'
 
 // How far the page can scroll before an open mobile menu closes itself.
@@ -92,6 +91,12 @@ function Nav() {
   }, [menuOpen])
 
   return (
+    <>
+    <div
+      className={`nav__scrim${menuOpen ? ' nav__scrim--visible' : ''}`}
+      onClick={() => setMenuOpen(false)}
+      aria-hidden="true"
+    />
     <header className={`nav${scrolled || menuOpen ? ' nav--solid' : ''}${menuOpen ? ' nav--open' : ''}`}>
       <nav className="nav__inner" aria-label="Main">
         <a
@@ -103,8 +108,8 @@ function Nav() {
         </a>
 
         <ul className="nav__links" id="nav-links">
-          {LINKS.map((link) => (
-            <li key={link.href}>
+          {LINKS.map((link, index) => (
+            <li key={link.href} style={{ '--i': index }}>
               <a
                 className={activeSection === link.href.slice(1) ? 'nav__link--active' : ''}
                 href={link.href}
@@ -127,7 +132,11 @@ function Nav() {
           aria-controls="nav-links"
           aria-label={menuOpen ? 'Close menu' : 'Open menu'}
         >
-          {menuOpen ? <FaXmark /> : <FaBars />}
+          <span className="nav__menu-lines" aria-hidden="true">
+            <span />
+            <span />
+            <span />
+          </span>
         </button>
       </nav>
       <motion.div
@@ -136,6 +145,7 @@ function Nav() {
         aria-hidden="true"
       />
     </header>
+    </>
   )
 }
 
